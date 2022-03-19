@@ -21,6 +21,7 @@ namespace _10
                 goto Up;
             }
 
+      
             up:
             Console.Write("\n Enter 2nd Number : ");
             Y = Convert.ToInt32(Console.ReadLine());
@@ -37,7 +38,7 @@ namespace _10
             {
                 Console.WriteLine("------------------------------------------------");
 
-                Console.Write("\n"+Y + " is a Power Of " + X);
+                Console.Write("\n\t"+Y + " is a Power Of " + X);
 
                 Console.WriteLine("\n\n------------------------------------------------");
             }
@@ -45,7 +46,7 @@ namespace _10
             {
                 Console.WriteLine("------------------------------------------------");
 
-                Console.Write("\n"+Y + " is Not a Power Of " + X);
+                Console.Write("\n\t"+Y + " is Not a Power Of " + X);
 
                 Console.WriteLine("\n\n------------------------------------------------");
             }
@@ -58,6 +59,7 @@ namespace _10
             int Res = 1;
 
             Console.WriteLine("\n Powers Of " + x + " : ");
+
             for (; Res<y ; )
             {
                 Res = x * Res;
@@ -72,5 +74,7 @@ namespace _10
             return 0;
               
         }
+
+     
     }
 }
