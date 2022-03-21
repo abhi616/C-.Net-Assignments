@@ -1,4 +1,0 @@
-D:\.Net Assignments\Assignment_01\01\01\bin\Debug\01.exe
-D:\.Net Assignments\Assignment_01\01\01\bin\Debug\01.pdb
-D:\.Net Assignments\Assignment_01\01\01\obj\x86\Debug\01.exe
-D:\.Net Assignments\Assignment_01\01\01\obj\x86\Debug\01.pdb
