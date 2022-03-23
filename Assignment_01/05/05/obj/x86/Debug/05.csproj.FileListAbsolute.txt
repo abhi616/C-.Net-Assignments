@@ -1,0 +1,5 @@
+D:\.Net Assignments\Assignment_01\05\05\bin\Debug\05.exe
+D:\.Net Assignments\Assignment_01\05\05\bin\Debug\05.pdb
+D:\.Net Assignments\Assignment_01\05\05\obj\x86\Debug\05.exe
+D:\.Net Assignments\Assignment_01\05\05\obj\x86\Debug\05.pdb
+D:\.Net Assignments\Assignment_01\05\05\obj\x86\Debug\05.csprojResolveAssemblyReference.cache

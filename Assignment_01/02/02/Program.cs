@@ -12,7 +12,7 @@ namespace _02
             int N1 = 0, N2 = 0 , N;
 
             Console.Write(" Enter 1st Number : ");
-            N1 = Convert.ToInt32(Console.ReadLine());
+            N1 = Convert.ToInt32(Console.ReadLine());           
 
             Console.Write("\n Enter 2nd Number : ");
             N2 = Convert.ToInt32(Console.ReadLine());
