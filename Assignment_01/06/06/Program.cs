@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+// C# Program To Check If Rectangles Overlap Or Not
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
