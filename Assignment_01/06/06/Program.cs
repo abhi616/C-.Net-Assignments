@@ -39,6 +39,7 @@ namespace _06
             r2.y = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("\n----------------------------------------------------------------\n");
+
             if (isOverlap(l1, r1, l2, r2)==1)
             {
                 Console.WriteLine("\t Rectangles Overlap");
