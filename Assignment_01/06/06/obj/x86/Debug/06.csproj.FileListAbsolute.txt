@@ -2,3 +2,4 @@ D:\.Net Assignments\Assignment_01\06\06\bin\Debug\06.exe
 D:\.Net Assignments\Assignment_01\06\06\bin\Debug\06.pdb
 D:\.Net Assignments\Assignment_01\06\06\obj\x86\Debug\06.exe
 D:\.Net Assignments\Assignment_01\06\06\obj\x86\Debug\06.pdb
+D:\.Net Assignments\Assignment_01\06\06\obj\x86\Debug\06.csprojResolveAssemblyReference.cache
