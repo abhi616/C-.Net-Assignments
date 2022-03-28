@@ -9,6 +9,7 @@ namespace _17
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
