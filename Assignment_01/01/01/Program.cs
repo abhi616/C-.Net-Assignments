@@ -15,6 +15,12 @@ namespace _01
             Console.Write("Enter a Number For Print The Pattern : ");
             N = Convert.ToInt32(Console.ReadLine());
 
+            for (; N == 13; )
+            {
+                Console.Write("Enter a Number For Print The Pattern : ");
+                N = Convert.ToInt32(Console.ReadLine());
+            }
+
             Console.Write("\n---------------------------------------------------------\n\n");
 
             Display_Pattern(N);
