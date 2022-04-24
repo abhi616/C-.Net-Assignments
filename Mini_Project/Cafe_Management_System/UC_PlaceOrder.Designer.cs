@@ -44,11 +44,15 @@ namespace Cafe_Management_System
             this.btn_Add_Item = new System.Windows.Forms.Button();
             this.tb_UpDown = new System.Windows.Forms.NumericUpDown();
             this.dgv_Order = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Remove = new System.Windows.Forms.Button();
             this.btn_Print = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_RS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tb_UpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Order)).BeginInit();
             this.SuspendLayout();
@@ -86,11 +90,16 @@ namespace Cafe_Management_System
             // tb_Search
             // 
             this.tb_Search.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Search.ForeColor = System.Drawing.Color.DarkGray;
             this.tb_Search.Location = new System.Drawing.Point(23, 229);
             this.tb_Search.Name = "tb_Search";
             this.tb_Search.Size = new System.Drawing.Size(252, 40);
             this.tb_Search.TabIndex = 9;
-            this.tb_Search.TextChanged += new System.EventHandler(this.tb_Item_Name_TextChanged);
+            this.tb_Search.Text = "Search";
+            this.tb_Search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Search.Click += new System.EventHandler(this.tb_Search_Click);
+            this.tb_Search.TextChanged += new System.EventHandler(this.tb_Search_TextChanged);
+            this.tb_Search.MouseLeave += new System.EventHandler(this.tb_Search_MouseLeave);
             // 
             // lb_Items
             // 
@@ -193,6 +202,7 @@ namespace Cafe_Management_System
             this.btn_Add_Item.TabIndex = 22;
             this.btn_Add_Item.Text = "Add To Cart";
             this.btn_Add_Item.UseVisualStyleBackColor = false;
+            this.btn_Add_Item.Click += new System.EventHandler(this.btn_Add_Item_Click);
             // 
             // tb_UpDown
             // 
@@ -207,9 +217,15 @@ namespace Cafe_Management_System
             // 
             this.dgv_Order.AllowUserToAddRows = false;
             this.dgv_Order.AllowUserToDeleteRows = false;
+            this.dgv_Order.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Order.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_Order.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgv_Order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Order.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
             this.dgv_Order.Location = new System.Drawing.Point(337, 381);
             this.dgv_Order.Name = "dgv_Order";
             this.dgv_Order.ReadOnly = true;
@@ -217,6 +233,35 @@ namespace Cafe_Management_System
             this.dgv_Order.RowTemplate.Height = 24;
             this.dgv_Order.Size = new System.Drawing.Size(716, 281);
             this.dgv_Order.TabIndex = 24;
+            this.dgv_Order.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Order_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Item Name";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Unit Price";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Quantity";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Price";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -226,19 +271,20 @@ namespace Cafe_Management_System
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             // 
-            // button1
+            // btn_Remove
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(221)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(334, 723);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 54);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(221)))));
+            this.btn_Remove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Remove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Remove.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Remove.ForeColor = System.Drawing.Color.White;
+            this.btn_Remove.Location = new System.Drawing.Point(334, 723);
+            this.btn_Remove.Name = "btn_Remove";
+            this.btn_Remove.Size = new System.Drawing.Size(181, 54);
+            this.btn_Remove.TabIndex = 26;
+            this.btn_Remove.Text = "Remove";
+            this.btn_Remove.UseVisualStyleBackColor = false;
+            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
             // 
             // btn_Print
             // 
@@ -253,6 +299,7 @@ namespace Cafe_Management_System
             this.btn_Print.TabIndex = 27;
             this.btn_Print.Text = "Print";
             this.btn_Print.UseVisualStyleBackColor = false;
+            this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
             // 
             // label7
             // 
@@ -264,25 +311,25 @@ namespace Cafe_Management_System
             this.label7.TabIndex = 28;
             this.label7.Text = "Grand Total";
             // 
-            // label8
+            // lbl_RS
             // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(602, 723);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(181, 54);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "Rs 00";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_RS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.lbl_RS.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_RS.Location = new System.Drawing.Point(602, 723);
+            this.lbl_RS.Name = "lbl_RS";
+            this.lbl_RS.Size = new System.Drawing.Size(181, 54);
+            this.lbl_RS.TabIndex = 29;
+            this.lbl_RS.Text = "Rs 00";
+            this.lbl_RS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UC_PlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbl_RS);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_Print);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_Remove);
             this.Controls.Add(this.dgv_Order);
             this.Controls.Add(this.tb_UpDown);
             this.Controls.Add(this.btn_Add_Item);
@@ -326,9 +373,13 @@ namespace Cafe_Management_System
         private System.Windows.Forms.NumericUpDown tb_UpDown;
         private System.Windows.Forms.DataGridView dgv_Order;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Remove;
         private System.Windows.Forms.Button btn_Print;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_RS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

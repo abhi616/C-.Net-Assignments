@@ -18,10 +18,35 @@ namespace Cafe_Management_System
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
+        {          
+
+            if (tb_Username.Text != "" && tb_Password.Text != "")
+            {            
+
+                if (tb_Username.Text == "Admin" && tb_Password.Text == "a123")
+                {
+                    MessageBox.Show("You Are Logged In Successfully.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frm_Dashboard Dash = new frm_Dashboard();
+                    this.Hide();
+                    Dash.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Username Or Password", "Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Question);                 
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter Username And Password.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Warning);             
+            }
+        }
+
+        private void linklbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frm_Dashboard Dash = new frm_Dashboard();
+            frm_Dashboard D = new frm_Dashboard("Guest");
             this.Hide();
-            Dash.Show();
+            D.Show();
         }
     }
 }

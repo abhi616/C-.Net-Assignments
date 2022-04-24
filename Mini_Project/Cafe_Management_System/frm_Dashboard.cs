@@ -17,6 +17,17 @@ namespace Cafe_Management_System
             InitializeComponent();
         }
 
+        public frm_Dashboard(String User)
+        {
+            InitializeComponent();
+
+            if (User=="Guest")
+            {
+                btn_AddItem.Hide();
+                btn_UpdateItem.Hide();
+                btn_RemoveItem.Hide();
+            }
+        }
      
 
         private void frm_Dashboard_Load(object sender, EventArgs e)
@@ -45,10 +56,27 @@ namespace Cafe_Management_System
             uC_UpdateItem1.BringToFront();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_RemoveItem_Click(object sender, EventArgs e)
         {
             uC_DeleteItem1.Visible = true;
             uC_DeleteItem1.BringToFront();
         }
+
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void linklbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(MessageBox.Show("Are You Sure?","Log Out",MessageBoxButtons.YesNo,MessageBoxIcon.Information)==DialogResult.Yes)
+            {
+                frm_Login L = new frm_Login();
+                this.Hide();
+                L.Show();
+            }
+        }
+
+    
     }
 }
